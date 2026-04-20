@@ -857,6 +857,7 @@ button {
 }
 
 @media (max-width: 860px) {
+
   .game-board-wrap,
   .game-modal {
     padding: 22px;
@@ -2702,7 +2703,7 @@ mark {
 }
 
 @media (max-width: 640px) {
-.revolution-card.double-image .revolution-image-column {
+  .revolution-card.double-image .revolution-image-column {
     grid-template-columns: 1fr;
   }
 }
@@ -2719,6 +2720,10 @@ mark {
   overflow: hidden;
 }
 
+.presentation-home .section .container {
+  width: min(1440px, calc(100vw - 24px));
+}
+
 .presentation-home .section::before {
   content: '';
   position: absolute;
@@ -2731,22 +2736,26 @@ mark {
 
 .presentation-home .section-dark {
   background:
-    linear-gradient(180deg, rgba(139, 30, 45, 0.96), rgba(103, 22, 34, 0.98)),
-    radial-gradient(circle at top right, rgba(212, 160, 23, 0.18), transparent 24%);
+    linear-gradient(180deg, #f5ede1, #efe2cf),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.12), transparent 24%);
 }
 
 .presentation-home .section-dark::before {
   background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 36%),
-    radial-gradient(circle at 82% 18%, rgba(212, 160, 23, 0.18), transparent 20%);
+    linear-gradient(120deg, rgba(255, 255, 255, 0.34), transparent 36%),
+    radial-gradient(circle at 82% 18%, rgba(212, 160, 23, 0.1), transparent 20%);
 }
 
 .presentation-hero {
   min-height: calc(100svh - 74px);
-  padding: 92px 0 72px;
+  padding: 16px 0 28px;
   background:
     radial-gradient(circle at 18% 12%, rgba(212, 160, 23, 0.1), transparent 18%),
     linear-gradient(135deg, #fbf7f1 0%, #f5eee4 46%, #f8f3eb 100%);
+}
+
+.presentation-hero .container {
+  width: min(1440px, calc(100vw - 24px));
 }
 
 .presentation-hero-backdrop {
@@ -2816,13 +2825,22 @@ mark {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
   align-items: center;
 }
 
 .presentation-hero-copy {
-  max-width: 760px;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  padding-right: 10px;
+  padding-top: 22px;
+  min-height: min(72svh, 720px);
 }
 
 .presentation-kicker {
@@ -2841,34 +2859,89 @@ mark {
 }
 
 .presentation-hero-copy h1 {
-  margin: 18px 0 0;
+  margin: 0;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3.3rem, 6vw, 5.8rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  max-width: 100%;
+  font-size: clamp(3rem, 4.8vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
   color: var(--ink);
+  text-align: left;
+  text-wrap: balance;
+}
+
+.presentation-hero-copy h1::before,
+.presentation-hero-copy h1::after {
+  display: block;
+}
+
+.presentation-hero-copy h1::before {
+  content: 'Dân chủ xã hội chủ nghĩa và';
+  color: var(--ink);
+}
+
+.presentation-hero-copy h1::after {
+  content: 'nhà nước xã hội chủ nghĩa';
+  color: var(--burgundy);
 }
 
 .presentation-subtitle {
   margin: 18px 0 0;
+  position: relative;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 700;
+  color: transparent;
+  text-align: left;
+}
+
+.presentation-subtitle::before {
+  content: 'Phân tích nhận định theo quan điểm Mác - Lênin';
+  color: rgba(31, 41, 55, 0.78);
+}
+
+.presentation-hero-copy h1::before,
+.presentation-hero-copy h1::after,
+.presentation-subtitle::before {
+  content: none !important;
+}
+
+.presentation-title-main,
+.presentation-title-accent {
+  display: block;
+}
+
+.presentation-title-accent {
+  color: var(--burgundy);
+}
+
+.presentation-subtitle {
+  position: static;
   color: rgba(31, 41, 55, 0.78);
 }
 
 .presentation-lead {
-  max-width: 720px;
-  margin: 20px 0 0;
+  max-width: 100%;
+  margin: 24px 0 0;
   font-size: 1.08rem;
   line-height: 1.9;
   color: var(--ink-soft);
+  text-align: left;
 }
 
 .presentation-actions {
-  margin-top: 30px;
+  margin-top: 28px;
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+}
+
+.hero-course-meta {
+  align-self: center;
+  justify-self: center;
+  width: fit-content;
+  margin-top: 34px;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
 .presentation-button {
@@ -2892,43 +2965,66 @@ mark {
 }
 
 .presentation-hero-visual {
-  display: grid;
-  gap: 16px;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  justify-self: stretch;
 }
 
-.presentation-hero-panel {
-  border-radius: 28px;
+.presentation-hero-image-frame {
+  position: relative;
+  width: 100%;
+  min-height: 780px;
+  height: min(86svh, 980px);
+  border-radius: 34px;
+  overflow: hidden;
   border: 1px solid rgba(139, 30, 45, 0.12);
+  box-shadow: 0 28px 56px rgba(31, 41, 55, 0.12);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.presentation-hero-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.presentation-hero-image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(247, 241, 232, 0.96)),
-    radial-gradient(circle at top right, rgba(212, 160, 23, 0.12), transparent 30%);
-  box-shadow: 0 22px 44px rgba(31, 41, 55, 0.08);
+    linear-gradient(180deg, rgba(12, 19, 33, 0.08), rgba(12, 19, 33, 0.24)),
+    linear-gradient(135deg, rgba(247, 241, 232, 0.04), transparent 42%);
 }
 
-.presentation-hero-panel.panel-main {
-  padding: 28px;
-  min-height: 260px;
-  display: grid;
-  align-content: start;
-  gap: 12px;
+.presentation-hero-image-overlay {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.presentation-hero-panel.panel-float {
-  padding: 18px 20px;
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px;
+.presentation-hero-image-chip {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  display: inline-flex;
   align-items: center;
-}
-
-.presentation-hero-panel strong {
-  font-size: 1.08rem;
-  color: var(--ink);
-}
-
-.presentation-hero-panel span {
-  color: var(--ink-soft);
-  line-height: 1.7;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--burgundy);
+  font-size: 0.88rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
 }
 
 .presentation-hero-panel-icon,
@@ -2956,11 +3052,53 @@ mark {
   padding-bottom: 88px;
 }
 
+#section-1 {
+  background:
+    radial-gradient(circle at top left, rgba(212, 160, 23, 0.08), transparent 20%),
+    linear-gradient(180deg, #faf6ef 0%, #f6eee2 100%);
+}
+
+#section-2 {
+  background:
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 18%),
+    linear-gradient(180deg, #f3eadc 0%, #eee0cb 100%);
+}
+
+#section-3 {
+  background:
+    radial-gradient(circle at top left, rgba(212, 160, 23, 0.07), transparent 18%),
+    linear-gradient(180deg, #f8f1e7 0%, #f3e9da 100%);
+}
+
+#section-4 {
+  background:
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 18%),
+    linear-gradient(180deg, #efe4d4 0%, #e9dac4 100%);
+}
+
+#section-5 {
+  background:
+    radial-gradient(circle at top left, rgba(212, 160, 23, 0.08), transparent 20%),
+    linear-gradient(180deg, #f9f2e8 0%, #f3e8d8 100%);
+}
+
+#section-6 {
+  background:
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 18%),
+    linear-gradient(180deg, #f1e6d7 0%, #ead9c5 100%);
+}
+
+#section-7 {
+  background:
+    radial-gradient(circle at top left, rgba(212, 160, 23, 0.08), transparent 20%),
+    linear-gradient(180deg, #f8f1e8 0%, #f2e6d7 100%);
+}
+
 .presentation-section-head {
   position: relative;
   z-index: 1;
-  max-width: 920px;
-  margin-bottom: 34px;
+  max-width: 980px;
+  margin-bottom: 40px;
 }
 
 .presentation-section-head h2 {
@@ -2982,7 +3120,7 @@ mark {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.14fr) minmax(320px, 0.86fr);
-  gap: 24px;
+  gap: 30px;
   align-items: start;
 }
 
@@ -2990,30 +3128,389 @@ mark {
   grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
 }
 
+.opening-issue-board {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 26px;
+  padding: 40px;
+  border-radius: 34px;
+  border: 1px solid rgba(139, 30, 45, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(246, 236, 223, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.12), transparent 24%);
+  box-shadow: 0 24px 52px rgba(31, 41, 55, 0.08);
+  color: var(--ink);
+}
+
+.opening-issue-top {
+  display: block;
+}
+
+.opening-issue-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.opening-issue-left,
+.opening-issue-right {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.opening-issue-question {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4.8vw, 4.7rem);
+  line-height: 0.98;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+}
+
+.opening-issue-question span {
+  color: var(--burgundy);
+}
+
+.opening-issue-judgement {
+  margin: 0;
+  max-width: 680px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.opening-issue-judgement strong {
+  color: var(--ink);
+}
+
+.opening-issue-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.opening-issue-card {
+  min-height: 100%;
+  padding: 22px 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(139, 30, 45, 0.12);
+  box-shadow: 0 18px 30px rgba(31, 41, 55, 0.05);
+}
+
+.opening-issue-card.is-positive {
+  border-color: rgba(212, 160, 23, 0.26);
+  background:
+    linear-gradient(180deg, rgba(252, 247, 238, 0.98), rgba(245, 234, 213, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.12), transparent 24%);
+}
+
+.opening-issue-card.is-warning {
+  border-color: rgba(139, 30, 45, 0.2);
+  background:
+    linear-gradient(180deg, rgba(251, 244, 240, 0.98), rgba(245, 232, 225, 0.98)),
+    radial-gradient(circle at top right, rgba(139, 30, 45, 0.08), transparent 24%);
+}
+
+.opening-issue-card-label {
+  display: inline-flex;
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+
+.opening-issue-card.is-positive .opening-issue-card-label {
+  color: #1f8f4c;
+}
+
+.opening-issue-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.opening-issue-panel {
+  padding: 24px 26px;
+  border-radius: 24px;
+  border: 1px solid rgba(139, 30, 45, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(248, 239, 228, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 26%);
+}
+
+.opening-issue-panel-wide {
+  width: 100%;
+}
+
+.opening-issue-panel-tall {
+  min-height: 100%;
+}
+
+.opening-issue-panel-label {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--burgundy);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.opening-issue-quote {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.24rem;
+  line-height: 1.9;
+}
+
+.opening-issue-panel h3 {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  line-height: 1.08;
+  color: var(--ink);
+}
+
+.opening-issue-list {
+  margin: 0;
+  padding-left: 24px;
+  display: grid;
+  gap: 14px;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  line-height: 1.82;
+}
+
+.opening-issue-callout {
+  padding: 24px 26px;
+  border-radius: 22px;
+  border-left: 4px solid var(--gold);
+  background:
+    linear-gradient(135deg, rgba(250, 241, 225, 0.98), rgba(245, 232, 212, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.12), transparent 26%);
+  color: var(--burgundy);
+  font-size: 1.22rem;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
 .presentation-content-stack {
   display: grid;
-  gap: 18px;
+  gap: 22px;
+}
+
+.presentation-section-three-layout,
+.presentation-section-five-layout {
+  display: grid;
+  gap: 24px;
+}
+
+.presentation-section-three-grid,
+.presentation-section-five-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .presentation-grid {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 18px;
+  gap: 22px;
+}
+
+.presentation-two-column-spotlight {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(360px, 1.04fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.presentation-two-column-stack {
+  display: grid;
+  gap: 22px;
+}
+
+.presentation-two-column-spotlight .presentation-visual {
+  height: 100%;
 }
 
 .presentation-grid-three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.presentation-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .presentation-grid-four {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.presentation-numbered-stack {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+}
+
+.presentation-numbered-card {
+  border-radius: 30px;
+  border: 1px solid rgba(139, 30, 45, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.97), rgba(247, 239, 228, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.1), transparent 24%);
+  box-shadow: 0 18px 34px rgba(31, 41, 55, 0.06);
+  overflow: hidden;
+}
+
+.presentation-numbered-head {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 26px 18px;
+}
+
+.presentation-numbered-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--burgundy), var(--burgundy-deep));
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(103, 22, 34, 0.16);
+}
+
+.presentation-numbered-head h3 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
+  line-height: 1.14;
+  color: var(--ink);
+}
+
+.presentation-numbered-body {
+  padding: 0 26px 24px;
+}
+
+.presentation-numbered-body .presentation-list {
+  gap: 12px;
+}
+
+.presentation-numbered-body p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.18rem;
+  line-height: 1.9;
+}
+
+.presentation-numbered-body li {
+  color: var(--ink-soft);
+  font-size: 1.18rem;
+  line-height: 1.9;
+}
+
+.presentation-numbered-media-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.presentation-numbered-copy {
+  min-width: 0;
+}
+
+.presentation-numbered-image {
+  min-height: 260px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 30, 45, 0.12);
+  box-shadow: 0 14px 26px rgba(31, 41, 55, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.presentation-numbered-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+#section-3 .presentation-numbered-media-layout {
+  grid-template-columns: minmax(0, 1.16fr) minmax(320px, 420px);
+  gap: 28px;
+  align-items: start;
+}
+
+#section-3 .presentation-numbered-copy {
+  padding-top: 4px;
+}
+
+#section-3 .presentation-numbered-image {
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+  min-height: unset;
+  aspect-ratio: 16 / 11;
+  border-radius: 26px;
+  border: 1px solid rgba(139, 30, 45, 0.1);
+  box-shadow: 0 18px 32px rgba(31, 41, 55, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(247, 241, 232, 0.62)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 26%);
+}
+
+#section-3 .presentation-numbered-image img {
+  min-height: unset;
+  height: 100%;
+  aspect-ratio: 16 / 11;
+  object-position: center center;
+}
+
+#section-3 .presentation-numbered-card-vertical .presentation-numbered-body {
+  display: grid;
+  gap: 18px;
+}
+
+#section-3 .presentation-numbered-card-vertical .presentation-numbered-copy {
+  padding-top: 0;
+}
+
+#section-3 .presentation-numbered-card-vertical .presentation-numbered-image-vertical {
+  max-width: none;
+  justify-self: stretch;
+  width: 100%;
+  aspect-ratio: 16 / 9.4;
+}
+
+#section-3 .presentation-numbered-card-vertical .presentation-numbered-image-vertical img {
+  aspect-ratio: 16 / 9.4;
+}
+
+#section-3 .presentation-section-three-grid .presentation-numbered-card:last-child .presentation-numbered-image-vertical {
+  margin-top: 72px;
 }
 
 .presentation-comparison-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
 .presentation-card,
@@ -3030,12 +3527,36 @@ mark {
 .section-dark .presentation-card,
 .section-dark .presentation-visual-shell {
   background:
-    linear-gradient(180deg, rgba(253, 249, 242, 0.96), rgba(246, 237, 225, 0.96)),
-    radial-gradient(circle at top right, rgba(212, 160, 23, 0.16), transparent 24%);
+    linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(250, 242, 231, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.12), transparent 24%);
+}
+
+#section-1 .presentation-card,
+#section-1 .presentation-visual-shell,
+#section-3 .presentation-card,
+#section-3 .presentation-visual-shell,
+#section-5 .presentation-card,
+#section-5 .presentation-visual-shell,
+#section-7 .presentation-card,
+#section-7 .presentation-visual-shell {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 248, 0.96), rgba(249, 242, 233, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.1), transparent 24%);
+}
+
+#section-2 .presentation-card,
+#section-2 .presentation-visual-shell,
+#section-4 .presentation-card,
+#section-4 .presentation-visual-shell,
+#section-6 .presentation-card,
+#section-6 .presentation-visual-shell {
+  background:
+    linear-gradient(180deg, rgba(252, 247, 240, 0.96), rgba(246, 235, 220, 0.98)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.1), transparent 24%);
 }
 
 .presentation-card {
-  padding: 24px;
+  padding: 28px;
 }
 
 .presentation-card-head {
@@ -3049,8 +3570,8 @@ mark {
 .presentation-card h3 {
   margin: 0;
   font-family: 'Playfair Display', serif;
-  font-size: 1.48rem;
-  line-height: 1.18;
+  font-size: 1.56rem;
+  line-height: 1.22;
 }
 
 .presentation-card p,
@@ -3058,12 +3579,13 @@ mark {
 .presentation-visual-shell p,
 .presentation-conclusion-card p {
   margin: 0;
+  font-size: 1.18rem;
   line-height: 1.9;
   color: var(--ink-soft);
 }
 
-.presentation-card p + p,
-.presentation-conclusion-card p + p {
+.presentation-card p+p,
+.presentation-conclusion-card p+p {
   margin-top: 12px;
 }
 
@@ -3080,11 +3602,27 @@ mark {
 }
 
 .presentation-visual-shell {
-  padding: 26px;
+  padding: 28px;
   min-height: 100%;
   display: grid;
   align-content: start;
   gap: 14px;
+}
+
+.presentation-image-shell {
+  padding: 0;
+  overflow: hidden;
+  min-height: 640px;
+  height: 100%;
+}
+
+.presentation-image-shell img {
+  width: 100%;
+  height: 100%;
+  min-height: 640px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 
 .presentation-visual-label {
@@ -3130,7 +3668,7 @@ mark {
   gap: 12px;
 }
 
-.presentation-inline-visual > span {
+.presentation-inline-visual>span {
   font-weight: 700;
 }
 
@@ -3143,26 +3681,95 @@ mark {
 .presentation-conclusion-card {
   position: relative;
   z-index: 1;
-  padding: 28px;
+  padding: 34px;
   max-width: 980px;
 }
 
+.presentation-conclusion-wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+  gap: 24px;
+  max-width: 1380px;
+  padding: 30px 32px;
+  border-radius: 30px;
+  border: 1px solid rgba(139, 30, 45, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(248, 241, 231, 0.74)),
+    radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 26%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(31, 41, 55, 0.06);
+}
+
+.presentation-conclusion-copy {
+  display: grid;
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.presentation-conclusion-copy p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.92;
+  color: var(--ink-soft);
+}
+
+.presentation-conclusion-emphasis {
+  display: flex;
+  align-items: center;
+  padding: 28px 26px;
+  border-radius: 22px;
+  background: #151b3d;
+  color: #ffffff;
+  font-size: 1.22rem;
+  line-height: 1.78;
+  font-weight: 700;
+  box-shadow: 0 18px 34px rgba(21, 27, 61, 0.16);
+}
+
+#section-7 .presentation-numbered-head h3 {
+  font-size: clamp(1.85rem, 2.7vw, 2.35rem);
+}
+
+#section-7 .presentation-numbered-body p {
+  font-size: 1.24rem;
+  line-height: 1.94;
+}
+
 @media (max-width: 1180px) {
+
   .presentation-hero-inner,
   .presentation-split-layout,
-  .presentation-split-reverse {
+  .presentation-split-reverse,
+  .opening-issue-board,
+  .opening-issue-bottom,
+  .presentation-two-column-spotlight {
     grid-template-columns: 1fr;
   }
 
+  .presentation-section-three-grid,
+  .presentation-section-five-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presentation-grid-two,
   .presentation-grid-four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 920px) {
+
+  .presentation-grid-two,
   .presentation-grid-three,
   .presentation-grid-four,
-  .presentation-comparison-grid {
+  .presentation-comparison-grid,
+  .presentation-conclusion-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .presentation-numbered-media-layout {
     grid-template-columns: 1fr;
   }
 
@@ -3173,11 +3780,38 @@ mark {
   }
 
   .presentation-hero-copy h1 {
-    font-size: clamp(2.7rem, 12vw, 4.2rem);
+    font-size: clamp(2.7rem, 11vw, 4.2rem);
+  }
+
+  .presentation-hero-image-frame {
+    min-height: 560px;
+    height: 62vh;
+  }
+
+  .presentation-image-shell,
+  .presentation-image-shell img {
+    min-height: 480px;
+  }
+
+  .opening-issue-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .opening-issue-board {
+    padding: 28px;
+  }
+
+  .opening-issue-question {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+  }
+
+  .presentation-numbered-head {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
+
   .presentation-hero-panel.panel-main,
   .presentation-card,
   .presentation-visual-shell,
@@ -3195,5 +3829,22 @@ mark {
 
   .presentation-button {
     width: 100%;
+  }
+
+  .presentation-hero-image-frame {
+    min-height: 320px;
+    height: 42vh;
+    border-radius: 26px;
+  }
+
+  .presentation-image-shell,
+  .presentation-image-shell img {
+    min-height: 320px;
+  }
+
+  .presentation-hero-image-overlay {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
   }
 }

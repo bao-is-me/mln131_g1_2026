@@ -7,201 +7,201 @@ const QUESTION_TIME_LIMIT = 20;
 const QUESTION_BANK = [
   {
     id: 'q1',
-    prompt: 'Hồ Chí Minh ra đi tìm đường cứu nước vào năm nào?',
+    prompt: 'Theo quan điểm của nhóm, nhận định trong đề bài được đánh giá như thế nào?',
     options: {
-      A: '1911',
-      B: '1920',
-      C: '1930',
-      D: '1945'
+      A: 'Hoàn toàn đúng',
+      B: 'Hoàn toàn sai',
+      C: 'Đúng một phần nhưng chưa đầy đủ',
+      D: 'Không thể đánh giá'
     },
-    correct: 'A'
+    correct: 'C'
   },
   {
     id: 'q2',
-    prompt: 'Tác phẩm “Đường Kách mệnh” gắn với ai?',
+    prompt: 'Theo lý luận Mác - Lênin, dân chủ trước hết được hiểu là gì?',
     options: {
-      A: 'Võ Nguyên Giáp',
-      B: 'Hồ Chí Minh',
-      C: 'Phạm Văn Đồng',
-      D: 'Trường Chinh'
+      A: 'Quyền tự do ngôn luận',
+      B: 'Quyền lực thuộc về nhân dân',
+      C: 'Quyền bầu cử',
+      D: 'Quyền tham gia mạng xã hội'
     },
     correct: 'B'
   },
   {
     id: 'q3',
-    prompt: 'Hồ Chí Minh đọc bản Sơ thảo luận cương của Lênin vào năm nào?',
+    prompt: 'Tư tưởng "dân là chủ, dân làm chủ" nhấn mạnh điều gì?',
     options: {
-      A: '1918',
-      B: '1919',
-      C: '1920',
-      D: '1925'
+      A: 'Vai trò của nhà nước',
+      B: 'Vai trò của lãnh đạo',
+      C: 'Vai trò chủ thể của nhân dân',
+      D: 'Vai trò của truyền thông'
     },
     correct: 'C'
   },
   {
     id: 'q4',
-    prompt: 'Câu nói “Không có gì quý hơn độc lập, tự do” gắn với ai?',
+    prompt: 'Dân chủ xã hội chủ nghĩa được xem là nền dân chủ như thế nào so với dân chủ tư sản?',
     options: {
-      A: 'Hồ Chí Minh',
-      B: 'Lê Duẩn',
-      C: 'Phan Bội Châu',
-      D: 'Trần Phú'
-    },
-    correct: 'A'
-  },
-  {
-    id: 'q5',
-    prompt: 'Tuyên ngôn Độc lập được đọc tại đâu?',
-    options: {
-      A: 'Huế',
-      B: 'Sài Gòn',
-      C: 'Hà Nội',
-      D: 'Nghệ An'
+      A: 'Giống nhau hoàn toàn',
+      B: 'Thấp hơn',
+      C: 'Cao hơn về chất',
+      D: 'Không liên quan'
     },
     correct: 'C'
   },
   {
-    id: 'q6',
-    prompt: 'Ngày Quốc khánh Việt Nam là ngày nào?',
+    id: 'q5',
+    prompt: 'Điểm cốt lõi của dân chủ xã hội chủ nghĩa là gì?',
     options: {
-      A: '30/4',
-      B: '2/9',
-      C: '19/5',
-      D: '22/12'
+      A: 'Tự do mạng xã hội',
+      B: 'Quyền lực thực sự thuộc về nhân dân',
+      C: 'Phát triển công nghệ',
+      D: 'Tự do báo chí'
     },
     correct: 'B'
   },
   {
-    id: 'q7',
-    prompt: 'Chủ tịch Hồ Chí Minh sinh năm nào?',
+    id: 'q6',
+    prompt: 'Theo bài trình bày, mạng xã hội được xác định là gì trong đời sống dân chủ?',
     options: {
-      A: '1880',
-      B: '1885',
-      C: '1890',
-      D: '1895'
+      A: 'Là bản chất của dân chủ xã hội chủ nghĩa',
+      B: 'Là biểu hiện cao nhất của dân chủ xã hội chủ nghĩa',
+      C: 'Là công cụ hỗ trợ dân chủ',
+      D: 'Là thiết chế quyền lực nhà nước'
+    },
+    correct: 'C'
+  },
+  {
+    id: 'q7',
+    prompt: 'Bản chất chính trị của dân chủ xã hội chủ nghĩa thể hiện ở đâu?',
+    options: {
+      A: 'Người dân chỉ được phát biểu',
+      B: 'Nhà nước quản lý toàn bộ',
+      C: 'Nhân dân là chủ thể quyền lực và tham gia quản lý',
+      D: 'Chỉ có lãnh đạo quyết định'
     },
     correct: 'C'
   },
   {
     id: 'q8',
-    prompt: 'Tên gọi của Nguyễn Tất Thành tại Hội nghị Véc-xây là gì?',
+    prompt: 'Bản chất kinh tế của dân chủ xã hội chủ nghĩa yêu cầu điều gì?',
     options: {
-      A: 'Nguyễn Sinh Cung',
-      B: 'Nguyễn Ái Quốc',
-      C: 'Hồ Tùng Mậu',
-      D: 'Lý Thụy'
+      A: 'Tăng trưởng kinh tế đơn thuần',
+      B: 'Quyền dân chủ gắn với lợi ích thực tế của người dân',
+      C: 'Tự do kinh doanh tuyệt đối',
+      D: 'Không liên quan kinh tế'
     },
     correct: 'B'
   },
   {
     id: 'q9',
-    prompt: 'Cách mạng Tháng Tám thành công vào năm nào?',
+    prompt: 'Bản chất tư tưởng - văn hóa - xã hội hướng tới điều gì?',
     options: {
-      A: '1943',
-      B: '1944',
-      C: '1945',
-      D: '1946'
+      A: 'Tự do tuyệt đối cá nhân',
+      B: 'Công bằng, bình đẳng, phát triển toàn diện con người',
+      C: 'Kiểm soát thông tin',
+      D: 'Phát triển công nghệ'
+    },
+    correct: 'B'
+  },
+  {
+    id: 'q10',
+    prompt: 'Nội dung nào sau đây không phải tiêu chí đầy đủ để đánh giá quyền lực thuộc về nhân dân?',
+    options: {
+      A: 'Tham gia bầu cử',
+      B: 'Có quyền đăng bài viral',
+      C: 'Giám sát quyền lực nhà nước',
+      D: 'Được hưởng thành quả phát triển'
+    },
+    correct: 'B'
+  },
+  {
+    id: 'q11',
+    prompt: 'Việc nhân dân tham gia vào bộ máy nhà nước thể hiện qua đâu?',
+    options: {
+      A: 'Mạng xã hội',
+      B: 'Biểu tình',
+      C: 'Bầu cử và cơ quan đại diện',
+      D: 'Báo chí'
     },
     correct: 'C'
   },
   {
-    id: 'q10',
-    prompt: 'Thủ đô của nước Việt Nam hiện nay là gì?',
-    options: {
-      A: 'Huế',
-      B: 'Đà Nẵng',
-      C: 'TP.HCM',
-      D: 'Hà Nội'
-    },
-    correct: 'D'
-  },
-  {
-    id: 'q11',
-    prompt: 'Hồ Chí Minh gắn liền với tư tưởng nào sau đây?',
-    options: {
-      A: 'Độc lập dân tộc gắn liền với chủ nghĩa xã hội',
-      B: 'Chỉ phát triển kinh tế tư nhân',
-      C: 'Chỉ ưu tiên quân sự',
-      D: 'Tách rời dân tộc với giai cấp'
-    },
-    correct: 'A'
-  },
-  {
     id: 'q12',
-    prompt: 'Tác phẩm “Bản án chế độ thực dân Pháp” nhằm tố cáo điều gì?',
+    prompt: 'Vì sao "viral" trên mạng chưa chắc là ý chí chung của nhân dân?',
     options: {
-      A: 'Thiên tai',
-      B: 'Chế độ thực dân Pháp',
-      C: 'Nạn mù chữ',
-      D: 'Tệ quan liêu'
+      A: 'Vì ít người dùng',
+      B: 'Vì bị ảnh hưởng bởi cảm xúc, thuật toán, tin giả',
+      C: 'Vì không có internet',
+      D: 'Vì không có chính phủ'
     },
     correct: 'B'
   },
   {
     id: 'q13',
-    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    prompt: 'Việc chính quyền "lắng nghe" trên mạng mới là bước nào trong quá trình thực hiện dân chủ?',
     options: {
-      A: '19/5',
-      B: '2/9',
-      C: '3/2',
-      D: '30/4'
+      A: 'Bước cuối cùng',
+      B: 'Không quan trọng',
+      C: 'Bước đầu trong quá trình thực hiện dân chủ',
+      D: 'Sự thay thế cho pháp luật'
     },
-    correct: 'A'
+    correct: 'C'
   },
   {
     id: 'q14',
-    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    prompt: 'Theo bài trình bày, vai trò của nhà nước xã hội chủ nghĩa là gì?',
     options: {
-      A: '19/5',
-      B: '2/9',
-      C: '3/2',
-      D: '30/4'
+      A: 'Thay thế nhân dân quyết định mọi việc',
+      B: 'Biến quyền làm chủ của nhân dân từ lý tưởng thành hiện thực',
+      C: 'Chỉ quản lý kinh tế',
+      D: 'Kiểm soát mạng xã hội là chính'
     },
-    correct: 'A'
+    correct: 'B'
   },
   {
     id: 'q15',
-    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    prompt: 'Nhà nước pháp quyền xã hội chủ nghĩa phải hoạt động trên cơ sở nào?',
     options: {
-      A: '19/5',
-      B: '2/9',
-      C: '3/2',
-      D: '30/4'
+      A: 'Thuật toán mạng xã hội',
+      B: 'Cảm xúc đám đông',
+      C: 'Hiến pháp và pháp luật',
+      D: 'Xu hướng truyền thông'
     },
-    correct: 'A'
+    correct: 'C'
   },
   {
     id: 'q16',
-    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    prompt: 'Mạng xã hội không thể thay thế điều gì?',
     options: {
-      A: '19/5',
-      B: '2/9',
-      C: '3/2',
-      D: '30/4'
+      A: 'Giao tiếp',
+      B: 'Thể chế, pháp luật và nhà nước',
+      C: 'Thông tin',
+      D: 'Giải trí'
     },
-    correct: 'A'
+    correct: 'B'
   },
   {
     id: 'q17',
-    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    prompt: 'Tiêu chí đầy đủ nhất để đánh giá dân chủ xã hội chủ nghĩa là gì?',
     options: {
-      A: '19/5',
-      B: '2/9',
-      C: '3/2',
-      D: '30/4'
+      A: 'Người dân nói nhiều',
+      B: 'Người dân nổi tiếng',
+      C: 'Nhân dân được tham gia, quyết định, giám sát và hưởng lợi',
+      D: 'Nhiều nền tảng mạng'
     },
-    correct: 'A'
+    correct: 'C'
   },
   {
     id: 'q18',
-    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    prompt: 'Kết luận đúng nhất của nhóm là gì?',
     options: {
-      A: '19/5',
-      B: '2/9',
-      C: '3/2',
-      D: '30/4'
+      A: 'Mạng xã hội là dân chủ',
+      B: 'Dân chủ chỉ là phát biểu',
+      C: 'Mạng xã hội là công cụ hỗ trợ, không phải bản chất dân chủ',
+      D: 'Dân chủ không cần nhà nước'
     },
-    correct: 'A'
+    correct: 'C'
   }
 ];
 
@@ -225,7 +225,7 @@ const EFFECT_POOL = [
   'bomb',
   'bomb',
   'specialPlus5',
-  'specialMinus5'
+  'specialPlus5'
 ];
 
 const EFFECT_META = {
@@ -255,28 +255,25 @@ const EFFECT_META = {
   },
   bomb: {
     badge: 'BOM',
-    title: 'Trừ 5 điểm của nhóm bị chỉ định.',
+    title: 'Trừ 5 điểm của nhóm bị chỉ định',
     tone: 'bomb',
     description: ''
   },
   specialPlus5: {
     badge: 'ĐB+',
-    title: 'Cộng ngay 5 điểm cho nhóm.',
+    title: 'Cộng ngay 5 điểm cho nhóm',
     tone: 'special',
     description: ''
   },
   specialMinus5: {
     badge: 'ĐB-',
-    title: 'Trừ ngay 5 điểm của nhóm.',
+    title: 'Trừ ngay 5 điểm của nhóm',
     tone: 'special',
     description: ''
   }
 };
 
-const INSTANT_EFFECTS = new Set([
-  'specialPlus5',
-  'specialMinus5'
-]);
+const INSTANT_EFFECTS = new Set(['specialPlus5', 'specialMinus5']);
 
 function shuffleArray(items) {
   const cloned = [...items];
@@ -320,7 +317,6 @@ function GamePage() {
   const activeQuestion = activeTile?.question ?? null;
   const answerRevealed = Boolean(activeQuestion && (selectedOption || timedOut));
   const isCorrect = Boolean(activeQuestion && selectedOption && !timedOut && activeQuestion.correct === selectedOption);
-  const remainingTiles = board.filter((tile) => !tile.used).length;
 
   useEffect(() => {
     return () => {
@@ -373,7 +369,7 @@ function GamePage() {
       await backgroundAudio.play();
       setMusicEnabled(true);
     } catch (error) {
-      console.error('Khong the phat nhac nen:', error);
+      console.error('Không thể phát nhạc nền:', error);
       setMusicEnabled(false);
     }
   };
@@ -463,7 +459,7 @@ function GamePage() {
           <div className="game-toolbar">
             <div className="game-toolbar-copy">
               <span className="game-page-label">Minigame</span>
-              <h1>Ô bí ẩn</h1>
+              <h1>Ô số may mắn</h1>
             </div>
 
             <div className="game-toolbar-actions">
@@ -480,7 +476,6 @@ function GamePage() {
           </div>
 
           <div className="game-board-wrap">
-
             <div className="game-grid" aria-label="Bảng trò chơi 20 ô">
               {board.map((tile) =>
                 tile.used ? (
@@ -508,7 +503,7 @@ function GamePage() {
                         Ô số {activeTile.slot}
                         {activeQuestion ? ' • Câu hỏi trắc nghiệm' : ' • Ô đặc biệt'}
                       </span>
-                      <h3>{activeQuestion ? 'Trả lời câu hỏi' : 'Ô đặc biệt'}</h3>
+                      {/* <h3>{activeQuestion ? 'Trả lời câu hỏi' : 'Ô đặc biệt'}</h3> */}
                     </div>
 
                     <div className="game-modal-side">
