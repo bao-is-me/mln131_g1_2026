@@ -147,6 +147,61 @@ const QUESTION_BANK = [
       D: '30/4'
     },
     correct: 'A'
+  },
+  {
+    id: 'q14',
+    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    options: {
+      A: '19/5',
+      B: '2/9',
+      C: '3/2',
+      D: '30/4'
+    },
+    correct: 'A'
+  },
+  {
+    id: 'q15',
+    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    options: {
+      A: '19/5',
+      B: '2/9',
+      C: '3/2',
+      D: '30/4'
+    },
+    correct: 'A'
+  },
+  {
+    id: 'q16',
+    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    options: {
+      A: '19/5',
+      B: '2/9',
+      C: '3/2',
+      D: '30/4'
+    },
+    correct: 'A'
+  },
+  {
+    id: 'q17',
+    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    options: {
+      A: '19/5',
+      B: '2/9',
+      C: '3/2',
+      D: '30/4'
+    },
+    correct: 'A'
+  },
+  {
+    id: 'q18',
+    prompt: 'Ngày sinh Chủ tịch Hồ Chí Minh là ngày nào?',
+    options: {
+      A: '19/5',
+      B: '2/9',
+      C: '3/2',
+      D: '30/4'
+    },
+    correct: 'A'
   }
 ];
 
@@ -154,6 +209,8 @@ const EFFECT_POOL = [
   'plus5',
   'plus5',
   'plus5',
+  'plus5',
+  'plus10',
   'plus10',
   'plus10',
   'plus10',
@@ -162,6 +219,9 @@ const EFFECT_POOL = [
   'minus5',
   'minus10',
   'minus10',
+  'minus10',
+  'bomb',
+  'bomb',
   'bomb',
   'bomb',
   'specialPlus5',
@@ -171,47 +231,52 @@ const EFFECT_POOL = [
 const EFFECT_META = {
   plus5: {
     badge: '+5',
-    title: '+5 điểm',
+    title: 'Cộng 5 điểm cho nhóm',
     tone: 'positive',
-    description: 'Cộng 5 điểm cho nhóm vừa chọn.'
+    description: ''
   },
   plus10: {
     badge: '+10',
-    title: '+10 điểm',
+    title: 'Cộng 10 điểm cho nhóm',
     tone: 'positive',
-    description: 'Cộng 10 điểm cho nhóm vừa chọn.'
+    description: ''
   },
   minus5: {
     badge: '-5',
-    title: '-5 điểm',
+    title: 'Trừ 5 điểm của nhóm',
     tone: 'negative',
-    description: 'Trừ 5 điểm của nhóm vừa chọn.'
+    description: ''
   },
   minus10: {
     badge: '-10',
-    title: '-10 điểm',
+    title: 'Trừ 10 điểm của nhóm',
     tone: 'negative',
-    description: 'Trừ 10 điểm của nhóm vừa chọn.'
+    description: ''
   },
   bomb: {
     badge: 'BOM',
-    title: 'Ô bom',
+    title: 'Trừ 5 điểm của nhóm bị chỉ định.',
     tone: 'bomb',
-    description: 'BOM: Trừ 5 điểm của nhóm bị chỉ định.'
+    description: ''
   },
   specialPlus5: {
     badge: 'ĐB+',
-    title: 'Ô đặc biệt +5',
+    title: 'Cộng ngay 5 điểm cho nhóm.',
     tone: 'special',
-    description: 'Ô này không cần trả lời. Cộng ngay 5 điểm cho nhóm vừa chọn.'
+    description: ''
   },
   specialMinus5: {
     badge: 'ĐB-',
-    title: 'Ô đặc biệt -5',
+    title: 'Trừ ngay 5 điểm của nhóm.',
     tone: 'special',
-    description: 'Ô này không cần trả lời. Trừ ngay 5 điểm của nhóm vừa chọn.'
+    description: ''
   }
 };
+
+const INSTANT_EFFECTS = new Set([
+  'specialPlus5',
+  'specialMinus5'
+]);
 
 function shuffleArray(items) {
   const cloned = [...items];
@@ -230,7 +295,7 @@ function createBoard() {
   let questionIndex = 0;
 
   return shuffledEffects.map((effect, index) => {
-    const isSpecial = effect === 'specialPlus5' || effect === 'specialMinus5';
+    const isSpecial = INSTANT_EFFECTS.has(effect);
 
     return {
       id: `tile-${index + 1}`,
@@ -391,7 +456,7 @@ function GamePage() {
 
   return (
     <section className="game-page" id="tro-choi">
-      <LotusPetals />
+      <LotusPetals className="game-petals" />
       <audio ref={backgroundAudioRef} src="/music/music.mp3" preload="auto" loop />
       <div className="container game-page-inner">
         <div className="game-shell">
@@ -416,7 +481,7 @@ function GamePage() {
 
           <div className="game-board-wrap">
 
-            <div className="game-grid" aria-label="Bảng trò chơi 15 ô">
+            <div className="game-grid" aria-label="Bảng trò chơi 20 ô">
               {board.map((tile) =>
                 tile.used ? (
                   <div key={tile.id} className="game-tile-empty" aria-hidden="true"></div>
@@ -436,14 +501,14 @@ function GamePage() {
 
             {activeTile ? (
               <div className="game-overlay" role="dialog" aria-modal="true">
-                <div className="game-modal">
+                <div className={`game-modal ${activeQuestion ? '' : 'special-modal'}`.trim()}>
                   <div className="game-modal-top">
                     <div>
                       <span className="game-modal-kicker">
                         Ô số {activeTile.slot}
                         {activeQuestion ? ' • Câu hỏi trắc nghiệm' : ' • Ô đặc biệt'}
                       </span>
-                      <h2>{activeQuestion ? 'Trả lời câu hỏi' : 'Ô đặc biệt'}</h2>
+                      <h3>{activeQuestion ? 'Trả lời câu hỏi' : 'Ô đặc biệt'}</h3>
                     </div>
 
                     <div className="game-modal-side">
