@@ -182,10 +182,13 @@ const sectionSevenBlocks = [
 ];
 
 const conclusionParagraphs = [
-  'Dân chủ xã hội chủ nghĩa không chỉ là quyền được nói trên mạng, mà cốt lõi là quyền lực thực sự thuộc về nhân dân, được bảo đảm bằng nhà nước, pháp luật và các điều kiện chính trị, kinh tế, xã hội cụ thể.',
-  'Mạng xã hội có thể là công cụ hỗ trợ dân chủ, nhưng không phải là bản chất, càng không phải là biểu hiện cao nhất của dân chủ xã hội chủ nghĩa.',
-  'Điều quan trọng nhất là quyền làm chủ của nhân dân phải được thực hiện trong thực tế, thông qua sự tham gia, giám sát, bảo đảm pháp lý và bảo đảm quyền lợi cụ thể.'
+  'Quyền lực trong dân chủ xã hội chủ nghĩa phải thực sự thuộc về nhân dân.',
+  'Mạng xã hội chỉ là công cụ hỗ trợ, không phải bản chất của dân chủ.',
+  'Nhà nước, pháp luật và cơ chế bảo đảm mới là nền tảng để quyền làm chủ được thực hiện trong thực tế.'
 ];
+
+const conclusionEmphasisText =
+  'Dân chủ xã hội chủ nghĩa là quyền lực thực sự của nhân dân, không thể rút gọn thành tiếng nói trên mạng xã hội.';
 
 function Icon({ name }) {
   const icons = {
@@ -344,7 +347,7 @@ function HomePage() {
           <div className="opening-issue-board reveal">
             <div className="opening-issue-top">
               <div className="opening-issue-panel opening-issue-panel-wide">
-                <span className="opening-issue-panel-label"><h2>Vấn đề cần làm rõ</h2></span>
+                <span className="opening-issue-panel-label">Vấn đề cần làm rõ</span>
                 <blockquote className="opening-issue-quote">
                   “Người dân có thể tự do bình luận, chia sẻ, tạo kiến nghị viral trên mạng xã hội và buộc chính quyền
                   phải lắng nghe — đây chính là biểu hiện cao nhất của nền dân chủ xã hội chủ nghĩa mà Mác - Lênin đã đề
@@ -506,24 +509,24 @@ function HomePage() {
             <h2>Vai trò của nhà nước pháp quyền xã hội chủ nghĩa</h2>
           </div>
 
-          <div className="presentation-section-five-layout stagger-up">
-            <ContentBlock
-              title={sectionFiveBlocks[0].title}
-              paragraphs={sectionFiveBlocks[0].paragraphs}
-              icon="institution"
-            />
+          <div className="presentation-section-five-split stagger-up">
+            <aside className="presentation-visual reveal">
+              <div className="presentation-visual-shell presentation-image-shell presentation-section-five-image">
+                <img
+                  src="https://cdn.xanhsm.com/2025/01/76c8add9-nha-quoc-hoi-viet-nam-6.jpg"
+                  alt="Hình minh họa về Nhà Quốc hội Việt Nam"
+                  loading="lazy"
+                />
+              </div>
+            </aside>
 
-            <div className="presentation-section-five-grid">
-              <ContentBlock
-                title={sectionFiveBlocks[1].title}
-                bullets={sectionFiveBlocks[1].bullets}
-                icon="law"
-              />
-              <ContentBlock
-                title={sectionFiveBlocks[2].title}
-                paragraphs={sectionFiveBlocks[2].paragraphs}
-                icon="state"
-              />
+            <div className="presentation-section-five-layout">
+              <ContentBlock title={sectionFiveBlocks[0].title} paragraphs={sectionFiveBlocks[0].paragraphs} icon="institution" />
+
+              <div className="presentation-section-five-grid">
+                <ContentBlock title={sectionFiveBlocks[1].title} bullets={sectionFiveBlocks[1].bullets} icon="law" />
+                <ContentBlock title={sectionFiveBlocks[2].title} paragraphs={sectionFiveBlocks[2].paragraphs} icon="state" />
+              </div>
             </div>
           </div>
         </div>
@@ -536,13 +539,21 @@ function HomePage() {
             <h2>Vai trò của mạng xã hội đối với dân chủ</h2>
           </div>
 
-          <div className="presentation-content-stack stagger-up">
-            <ContentBlock title={sectionSixBlocks[0].title} paragraphs={sectionSixBlocks[0].paragraphs} icon="network" />
+          <div className="presentation-section-six-split stagger-up">
+            <div className="presentation-content-stack">
+              <ContentBlock title={sectionSixBlocks[0].title} paragraphs={sectionSixBlocks[0].paragraphs} icon="network" />
 
-            <div className="presentation-comparison-grid">
-              <ContentBlock title={sectionSixBlocks[1].title} bullets={sectionSixBlocks[1].bullets} icon="dialogue" />
-              <ContentBlock title={sectionSixBlocks[2].title} bullets={sectionSixBlocks[2].bullets} icon="network" />
+              <div className="presentation-comparison-grid">
+                <ContentBlock title={sectionSixBlocks[1].title} bullets={sectionSixBlocks[1].bullets} icon="dialogue" />
+                <ContentBlock title={sectionSixBlocks[2].title} bullets={sectionSixBlocks[2].bullets} icon="network" />
+              </div>
             </div>
+
+            <aside className="presentation-visual reveal">
+              <div className="presentation-visual-shell presentation-image-shell presentation-section-six-image">
+                <img src="/pic/pic.png" alt="Hình minh họa cho vai trò của mạng xã hội" loading="lazy" />
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -581,14 +592,17 @@ function HomePage() {
 
           <div className="presentation-conclusion-wrap reveal">
             <div className="presentation-conclusion-copy">
-              {conclusionParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+              {conclusionParagraphs.map((paragraph, index) => (
+                <div key={paragraph} className="presentation-conclusion-point">
+                  <span className="presentation-conclusion-point-number">{`0${index + 1}`}</span>
+                  <p>{paragraph}</p>
+                </div>
               ))}
             </div>
 
             <div className="presentation-conclusion-emphasis">
-              Dân chủ xã hội chủ nghĩa không chỉ là quyền được nói, mà là quyền lực thực sự thuộc về nhân dân trong đời
-              sống chính trị, pháp lý và xã hội.
+              <span className="presentation-conclusion-emphasis-label">Chốt</span>
+              <p>{conclusionEmphasisText}</p>
             </div>
           </div>
         </div>
