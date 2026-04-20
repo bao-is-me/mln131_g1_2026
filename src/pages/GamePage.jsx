@@ -392,7 +392,7 @@ function GamePage() {
   return (
     <section className="game-page" id="tro-choi">
       <LotusPetals />
-      <audio ref={backgroundAudioRef} src="/mucsic/mucsic.mp3" preload="auto" loop />
+      <audio ref={backgroundAudioRef} src="/music/music.mp3" preload="auto" loop />
       <div className="container game-page-inner">
         <div className="game-shell">
           <div className="game-toolbar">
