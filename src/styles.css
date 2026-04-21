@@ -3663,6 +3663,45 @@ mark {
   object-position: center center;
 }
 
+.presentation-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.presentation-practice-card {
+  height: 100%;
+}
+
+.presentation-practice-body {
+  display: grid;
+  gap: 20px;
+}
+
+.presentation-practice-body p {
+  margin: 0;
+  order: 2;
+}
+
+.presentation-practice-image {
+  order: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 30, 45, 0.12);
+  box-shadow: 0 16px 28px rgba(31, 41, 55, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  aspect-ratio: 16 / 10;
+}
+
+.presentation-practice-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .presentation-visual-label {
   color: var(--burgundy);
   font-size: 0.8rem;

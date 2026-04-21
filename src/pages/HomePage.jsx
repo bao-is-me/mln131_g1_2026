@@ -181,6 +181,40 @@ const sectionSevenBlocks = [
   }
 ];
 
+const sectionEightBlocks = [
+  {
+    number: '01',
+    title: 'Tham gia bộ máy nhà nước',
+    image:
+      'https://xdcs.cdnchinhphu.vn/thumb_w/640/446259493575335936/2023/4/29/bc3-16827362250611420861539.jpg'
+    , description:
+      'Nhân dân thực hiện quyền làm chủ thông qua bầu cử, ứng cử và tham gia vào các cơ quan đại diện của nhà nước.'
+  },
+  {
+    number: '02',
+    title: 'Góp ý chính sách, pháp luật',
+    description:
+      'Người dân có thể tham gia đóng góp ý kiến cho các dự thảo chính sách, pháp luật và các chương trình phát triển của xã hội.',
+    image: 'https://cdn.fpt-is.com/vi/chinh-phu-so-2.png'
+  },
+  {
+    number: '03',
+    title: 'Giám sát và phản biện xã hội',
+    description:
+      'Công dân, các tổ chức chính trị - xã hội và cộng đồng có quyền giám sát việc thực thi quyền lực, phản ánh vấn đề thực tiễn và kiến nghị điều chỉnh.',
+    image:
+      'https://xdcs.cdnchinhphu.vn/zoom/600_315/446259493575335936/2023/8/16/hop-1692181009851892234604-100-0-600-800-crop-16921810144952139734488.jpg'
+  },
+  {
+    number: '04',
+    title: 'Hưởng thành quả phát triển',
+    description:
+      'Quyền làm chủ phải gắn với lợi ích thiết thực của người dân về an sinh, giáo dục, y tế và điều kiện sống ngày càng tốt hơn.',
+    image:
+      'https://vitamvocviet.vn/upload/photos/1/1.%202024%20Tin%20t%E1%BB%A9c/7.2024/7.23.24%20quy%20vi%20tam%20voc%20viet%20vsf%20%20trao%20tang%20sua%20tai%20khu%20vuc%20phia%20nam.jpg'
+  }
+];
+
 const conclusionParagraphs = [
   'Quyền lực trong dân chủ xã hội chủ nghĩa phải thực sự thuộc về nhân dân.',
   'Mạng xã hội chỉ là công cụ hỗ trợ, không phải bản chất của dân chủ.',
@@ -313,7 +347,7 @@ function HomePage() {
               <a href="#section-1" className="presentation-button">
                 Xem nội dung
               </a>
-              <a href="#section-8" className="presentation-button secondary">
+              <a href="#section-9" className="presentation-button secondary">
                 Xem kết luận
               </a>
             </div>
@@ -583,7 +617,35 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section presentation-section presentation-conclusion section-light" id="section-8">
+      <section className="section presentation-section section-dark" id="section-8">
+        <div className="container">
+          <div className="presentation-section-head reveal">
+            <span className="section-label">Phần VIII</span>
+            <h2>Liên hệ thực tiễn</h2>
+          </div>
+
+          <div className="presentation-grid-two presentation-practice-grid stagger-up">
+            {sectionEightBlocks.map((block) => (
+              <article key={block.number} className="presentation-numbered-card presentation-practice-card reveal-child">
+                <div className="presentation-numbered-head">
+                  <span className="presentation-numbered-badge">{block.number}</span>
+                  <h3>{block.title}</h3>
+                </div>
+
+                <div className="presentation-numbered-body presentation-practice-body">
+                  <p>{block.description}</p>
+
+                  <div className="presentation-practice-image">
+                    <img src={block.image} alt={block.title} loading="lazy" />
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section presentation-section presentation-conclusion section-light" id="section-9">
         <div className="container">
           <div className="presentation-section-head reveal">
             <span className="section-label">Kết luận</span>
