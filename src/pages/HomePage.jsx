@@ -113,7 +113,7 @@ const sectionFiveBlocks = [
     paragraphs: ['Nhà nước xã hội chủ nghĩa là thiết chế giúp biến quyền làm chủ của nhân dân từ lý tưởng thành hiện thực.']
   },
   {
-    title: 'Nội dung cần nhấn mạnh',
+    title: 'Nội dung',
     bullets: [
       'Nhà nước phải là nhà nước của nhân dân, do nhân dân, vì nhân dân.',
       'Hoạt động trên cơ sở Hiến pháp và pháp luật.',
@@ -122,7 +122,7 @@ const sectionFiveBlocks = [
     ]
   },
   {
-    title: 'Kết luận ý này',
+    title: 'Kết luận',
     paragraphs: [
       'Vì vậy, dân chủ xã hội chủ nghĩa không thể chỉ được hiểu trong phạm vi mạng xã hội, mà phải được thể hiện ở toàn bộ hệ thống chính trị, pháp luật và đời sống xã hội.'
     ]
@@ -341,8 +341,6 @@ function HomePage() {
               <span className="presentation-title-main">Dân chủ xã hội chủ nghĩa và</span>
               <span className="presentation-title-accent">nhà nước xã hội chủ nghĩa</span>
             </h1>
-            <p className="presentation-subtitle">Phân tích nhận định theo quan điểm Mác - Lênin</p>
-
             <div className="presentation-actions">
               <a href="#section-1" className="presentation-button">
                 Xem nội dung
@@ -381,7 +379,7 @@ function HomePage() {
           <div className="opening-issue-board reveal">
             <div className="opening-issue-top">
               <div className="opening-issue-panel opening-issue-panel-wide">
-                <span className="opening-issue-panel-label">Vấn đề cần làm rõ</span>
+                <span className="opening-issue-panel-label"><h2>Vấn đề cần làm rõ</h2></span>
                 <blockquote className="opening-issue-quote">
                   “Người dân có thể tự do bình luận, chia sẻ, tạo kiến nghị viral trên mạng xã hội và buộc chính quyền
                   phải lắng nghe — đây chính là biểu hiện cao nhất của nền dân chủ xã hội chủ nghĩa mà Mác - Lênin đã đề
@@ -516,22 +514,28 @@ function HomePage() {
             <h2>Tiêu chí cho thấy quyền lực thực sự thuộc về nhân dân</h2>
           </div>
 
-          <div className="presentation-numbered-stack stagger-up">
-            {sectionFourDisplay.map((block) => (
-              <article key={block.number} className="presentation-numbered-card reveal-child">
-                <div className="presentation-numbered-head">
-                  <span className="presentation-numbered-badge">{block.number}</span>
-                  <h3>{block.title}</h3>
-                </div>
-                <div className="presentation-numbered-body">
-                  <ul className="presentation-list">
-                    {block.bullets.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+          <div className="presentation-grid presentation-grid-two presentation-argument-grid stagger-up">
+            {sectionFourDisplay.map((block, index) => {
+              const criteriaIcons = ['people', 'law', 'dialogue', 'state'];
+
+              return (
+                <article key={block.number} className="presentation-numbered-card presentation-argument-card reveal-child">
+                  <div className="presentation-argument-head">
+                    <span className="presentation-argument-icon">
+                      <Icon name={criteriaIcons[index] ?? 'dialogue'} />
+                    </span>
+                    <h3>{block.title}</h3>
+                  </div>
+                  <div className="presentation-numbered-body">
+                    <ul className="presentation-list">
+                      {block.bullets.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
