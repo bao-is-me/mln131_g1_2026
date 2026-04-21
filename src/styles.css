@@ -3702,6 +3702,54 @@ mark {
   object-position: center center;
 }
 
+.presentation-argument-grid {
+  gap: 24px;
+}
+
+.presentation-argument-card {
+  height: 100%;
+}
+
+.presentation-argument-head {
+  display: grid;
+  gap: 18px;
+  padding: 26px 28px 16px;
+}
+
+.presentation-argument-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 30, 45, 0.08);
+  border: 1px solid rgba(139, 30, 45, 0.1);
+  color: var(--burgundy);
+}
+
+.presentation-argument-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.presentation-argument-head h3 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.22;
+  color: var(--ink);
+}
+
+#section-7 .presentation-argument-card .presentation-numbered-body {
+  padding: 0 28px 28px;
+}
+
+#section-7 .presentation-argument-card .presentation-numbered-body p {
+  font-size: 1.14rem;
+  line-height: 1.88;
+}
+
 .presentation-visual-label {
   color: var(--burgundy);
   font-size: 0.8rem;
@@ -3853,15 +3901,6 @@ mark {
   line-height: 1.62;
   font-weight: 700;
   color: var(--burgundy);
-}
-
-#section-7 .presentation-numbered-head h3 {
-  font-size: clamp(1.85rem, 2.7vw, 2.35rem);
-}
-
-#section-7 .presentation-numbered-body p {
-  font-size: 1.24rem;
-  line-height: 1.94;
 }
 
 @media (max-width: 1180px) {

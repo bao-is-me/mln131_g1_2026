@@ -599,20 +599,26 @@ function HomePage() {
             <h2>Phản biện nhận định “biểu hiện cao nhất”</h2>
           </div>
 
-          <div className="presentation-numbered-stack stagger-up">
-            {sectionSevenBlocks.map((block) => (
-              <article key={block.number} className="presentation-numbered-card reveal-child">
-                <div className="presentation-numbered-head">
-                  <span className="presentation-numbered-badge">{block.number}</span>
-                  <h3>{block.title}</h3>
-                </div>
-                <div className="presentation-numbered-body">
-                  {block.paragraphs.map((item) => (
-                    <p key={item}>{item}</p>
-                  ))}
-                </div>
-              </article>
-            ))}
+          <div className="presentation-grid presentation-grid-two presentation-argument-grid stagger-up">
+            {sectionSevenBlocks.map((block, index) => {
+              const argumentIcons = ['network', 'people', 'dialogue', 'law'];
+
+              return (
+                <article key={block.number} className="presentation-numbered-card presentation-argument-card reveal-child">
+                  <div className="presentation-argument-head">
+                    <span className="presentation-argument-icon">
+                      <Icon name={argumentIcons[index] ?? 'dialogue'} />
+                    </span>
+                    <h3>{block.title}</h3>
+                  </div>
+                  <div className="presentation-numbered-body">
+                    {block.paragraphs.map((item) => (
+                      <p key={item}>{item}</p>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
