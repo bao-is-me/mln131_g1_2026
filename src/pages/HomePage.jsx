@@ -353,7 +353,7 @@ function HomePage() {
             <div className="hero-course-meta">
               <span className="hero-course-code">MLN131</span>
               <span className="hero-course-divider"></span>
-              <span className="hero-course-lecturer">Giảng viên: Cô Nguyễn Thùy Phương</span>
+              <span className="hero-course-lecturer">Giảng viên: Cô Nguyễn Thúy Phương</span>
             </div>
           </div>
 
